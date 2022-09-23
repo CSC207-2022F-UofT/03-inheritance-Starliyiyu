@@ -80,7 +80,7 @@ public abstract class Bag {
      */
     public boolean addItem(String item){
         if (this.numberOfContents < this.capacity){
-            this.contents[this.numberOfContents - 1] = item;
+            this.contents[this.numberOfContents] = item;
             this.numberOfContents += 1;
             return true;
         }
@@ -100,13 +100,14 @@ public abstract class Bag {
      * If there are no items in this Bag, return null.
      *
      * @return
+     * String lastItem
      */
     public String popItem(){
         if (this.numberOfContents == 0) {
             return null;
         }
-        String lastItem = this.contents[this.numberOfContents - 1];
-        this.contents[this.numberOfContents - 1] = null;
+        String lastItem = this.contents[this.numberOfContents];
+        this.contents[this.numberOfContents] = null;
         this.numberOfContents -= 1;
         return lastItem;
     }
@@ -132,6 +133,7 @@ public abstract class Bag {
      * instance variables mentioned above.
      *
      * @return
+     *
      */
     @Override
     public String toString() {

@@ -24,9 +24,49 @@
  *       2 (as opposed to the 1 that HandBag increases by).
  *
  *       The toString method should be overridden to return a string in the
- *       in the same form as Bag's toString but with the original "Bag" part
+ *       same form as Bag's toString but with the original "Bag" part
  *       of the string replaced by:
  *           Crossbody Bag with {numberOfStraps} straps
  *
  *       See the tests in test/CrossBodyBagTest.java for examples.
  */
+public class CrossbodyBag extends Bag{
+
+    private int numberOfStraps;
+    /**
+     * Creates a new CrossbodyBag with the given color, the number of straps and
+     * capacity.
+     *
+     * @param color
+     * @param numberOfStraps
+     * @param capacity
+     */
+    public CrossbodyBag(String color, int capacity, int numberOfStraps) {
+        super(color, capacity);
+        this.numberOfStraps = numberOfStraps;
+    }
+
+    public int getNumberOfStraps(){
+        return this.numberOfStraps;
+    }
+
+    @Override
+    public String toString() {
+        return this.getColor() + " Crossbody Bag with "+ this.numberOfStraps + " straps (" + this.getNumberOfContents() + " / " +
+                this.getCapacity() + ")";
+    }
+
+    /**
+     * Increase the capacity of this bag by 2.
+     */
+    @Override
+    public void enhance() {
+        /* TODO: Implement this method.
+         *       You may want to use the increaseCapacity() method that was
+         *       implemented in Bag.
+         *
+         * To call a method defined in a parent, you use super.method_name(...)
+         */
+        super.increaseCapacity(2);
+    }
+}
